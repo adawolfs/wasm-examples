@@ -17,5 +17,5 @@ cargo build --target wasm32-wasi
 
 ## Extract module
 ```
-mv target/wasm32-wasi/main.wasm target/main.wasm
+mv target/wasm32-wasi/debug/main.wasm target/main.wasm
 ```
