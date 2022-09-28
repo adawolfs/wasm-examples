@@ -1,3 +1,3 @@
 fn main() {
-    println!("Hola equipo de LHDK");
+    println!("Soy un modulo escrito en Rust");
 }
