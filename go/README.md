@@ -1,27 +1,21 @@
 # Go
 
-## TinyGo Setup
+## Setup
+Go 1.21 adds a wasi preview target
 
-This is already done on devcontainer
-```
-wget https://github.com/tinygo-org/tinygo/releases/download/v0.23.0/tinygo_0.23.0_amd64.deb
-sudo dpkg -i tinygo_0.23.0_amd64.deb
-```
-Create a module
-```
-mkdir src target
-touch src/main.go
-```
+https://go.dev/blog/wasi
+
 
 ## Build
 ```
-tinygo build -target=wasi -o target/main.wasm src/main.go
+GOOS=wasip1 GOARCH=wasm go build -o target/main.wasm src/main.go
 ```
 
 ## Build for web
 ```
-GOOS=js GOARCH=wasm go build -o static/main.wasm src/web/main.go
+GOOS=js GOARCH=wasm go build -o static/main.wasm src/main.go
 ```
+
 ### Extras
 - https://binx.io/2022/04/22/golang-webassembly/
 

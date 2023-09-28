@@ -3,11 +3,14 @@ package main
 import (
 	"fmt"
 	"math"
-	"time"
 )
 
+func main() {
+	fmt.Println("Soy un modulo escrito en Go")
+	// bagel()
+}
+
 const (
-	delay      = 24 * time.Millisecond // 90 FPS
 	coreString = ".,-~:;=!*#$@"
 )
 
@@ -27,7 +30,11 @@ func byteSetter(arr []string, v string) {
 	}
 }
 
-func main() {
+func bagel() {
+	donut()
+}
+
+func donut() {
 	A := float64(0)
 	B := float64(0)
 
@@ -93,8 +100,6 @@ func main() {
 			A += 0.00004
 			B += 0.00002
 		}
-
-		time.Sleep(delay)
 
 	}
 

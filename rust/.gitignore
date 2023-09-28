@@ -1,2 +1,2 @@
-target/debug
-target/wasm32-wasi/*
+target/*
+!target/main.wasm
