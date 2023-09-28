@@ -1,1 +1,2 @@
-# /target
+target/debug
+target/wasm32-wasi/*

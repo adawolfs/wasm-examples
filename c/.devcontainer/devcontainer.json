@@ -8,6 +8,7 @@
 		// Use bullseye on local arm64/Apple Silicon.
 		"args": { "VARIANT": "bullseye" }
 	},
+	"runArgs":["--platform=linux/amd64"],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
