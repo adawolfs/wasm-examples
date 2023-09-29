@@ -1,6 +1,6 @@
 # WASM
 
-WebAssembly Code Examples made with containers
+WebAssembly Code Examples made with Dev Containers
 
 
 # WebAssembly
@@ -24,6 +24,14 @@ wasmtime --dir . main.wasm
 ```
 curl https://get.wasmer.io -sSfL | sh
 ```
+
+## WASMEDGE
+
+### Install
+```
+curl -sSf https://raw.githubusercontent.com/WasmEdge/WasmEdge/master/utils/install.sh | bash
+```
+
 ### Execute it
 As you might notice when I fist installed it and try to execute it thows an error
 ```
@@ -40,12 +48,29 @@ Reading package lists... Done
 
 Test all the packages
 ```
-$ wasmer wasm/golang/main.wasm 
-Hello from GoLang
-$ wasmer wasm/rust/module/target/wasm32-wasi/debug/module.wasm 
-Hello from Rust
-$ wasmer wasm/c/module/main.wasm 
-Hello from C
+$ wasmer go/target/main.wasm 
+Soy un modulo escrito en Go
+$ wasmer rust/target/main.wasm 
+Soy un modulo escrito en Rust
+$ wasmer c/target/main.wasm 
+Soy un modulo escrito en C
+```
+
+# Docker + WASM
+
+## Setup
+https://docs.docker.com/desktop/wasm/#running-a-wasm-application-with-docker-compose
+
+## Build
+```
+export WASM_LANG=rust #go, c
+export BUILDX_NO_DEFAULT_ATTESTATIONS=1 
+docker buildx build --platform linux/amd64,wasi/wasm --build-arg WASM_LANG=${WASM_LANG} -t adawolfs/${WASM_LANG}-wasm .
+```
+
+## Run
+```
+docker run  --runtime=io.containerd.wasmedge.v1 --platform=wasi/wasm adawolfs/${WASM_LANG}-wasm 
 ```
 
 # WASM to OCI
